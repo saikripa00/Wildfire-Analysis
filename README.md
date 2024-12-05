@@ -13,10 +13,11 @@ By addressing these questions, this study aims to contribute to the existing bod
 
 ## License  
 ### Data License  
-Data pertaining to Wildland Fires, provided by the USGS, are publicly available and not subject to copyright restrictions.
+Data pertaining to Wildland Fires, provided by the USGS, are publicly available and not subject to copyright restrictions.  
 
+AQI data is accessed through the EPA API.  
 
-AQI data is accessed through the EPA API.
+Respiratory dataset: California Environmental Health Tracking Program. (n.d.). Tracking California - Air quality and health. California Department of Public Health. Retrieved from https://trackingcalifornia.org/data-and-tools  
 
 ### Code Attribution
 Snippets of the code were taken from a code example developed by Dr. David W. McDonald for use in DATA 512, a course in the UW MS Data Science degree program. This code is provided under the Creative Commons CC-BY license.
@@ -30,7 +31,7 @@ To use AQI related API we need to request a key using a valid email address. The
 The input data file is too large to be uploaded to the git repository. FInd the zipped data here: https://www.sciencebase.gov/catalog/item/61aa537dd34eb622f699df81 
 
 ## Raw Data Files
-`all_records.csv` which is a the wildfire dataframe which was obtained after processing the wildfire geoJson dataset.
+[`all_records.csv`](Raw-files\all_records.csv) which is a the wildfire dataframe which was obtained after processing the wildfire geoJson dataset.
 
 ### Schema Description
 
@@ -44,7 +45,7 @@ The input data file is too large to be uploaded to the git repository. FInd the 
 | `avg_distance`     | The average distance from the wildfire's location to other key points.   | `float`     |
 | `perimeter_start`  | The coordinates of the starting point of the wildfire's perimeter.       | `string`    |
 
-`aqi.csv` contains the gaseous and particulate csv data returned from the AQI API calls. This csv is a result of data processing from the API responses. 
+[`aqi.csv`](Raw-files\aqi.csv) contains the gaseous and particulate csv data returned from the AQI API calls. This csv is a result of data processing from the API responses. 
 
 ### Schema Description
 
@@ -64,7 +65,7 @@ The input data file is too large to be uploaded to the git repository. FInd the 
 | `aqi`              | The Air Quality Index value calculated based on pollutant concentration. | `float`   |
 | `year`             | The year in which the measurement was taken.                          | `integer`   |
 
-`filtered_records.json` file contains the wildfire dataset for my city Rialto and fires within 650 miles of the city. 
+[`filtered_records.json`](Raw-files\filtered_records.json) file contains the wildfire dataset for my city Rialto and fires within 650 miles of the city. 
 
 ### Schema Description
 
@@ -79,9 +80,9 @@ The input data file is too large to be uploaded to the git repository. FInd the 
 | `perimeter_start`  | The coordinates (latitude, longitude) of the starting point of the wildfire's perimeter. | `array of floats` |
 
 ## Csv Files 
-I am documenting the final csvs that were used in the plotting and analysis. All other files are considered intermediary so that while data processing, data is not lost. This is to handle the scenario of losing connections, network issues and memory issues  while the code runs. 
+These are the final csvs that were generated and used for plotting and analysis.
 
-`aqi_1964_2024.csv` contains the AQI csv data for the year 1064 to 2024. 
+[`aqi_1964_2024.csv`](Csv-files\aqi_1964_2024.csv) contains the AQI csv data for the year 1064 to 2024. 
 This dataset contains annual air quality index (AQI) values measured over several years. The AQI indicates the level of air pollution and its potential impact on health. Each row in the dataset represents the AQI value for a specific year.
 
 ### Schema Description
@@ -91,7 +92,7 @@ This dataset contains annual air quality index (AQI) values measured over severa
 | `year`      | The year the AQI measurement was recorded.              | `integer`      |
 | `aqi`       | The average Air Quality Index for the given year.       | `float`        |
 
-`fire_distance_info.csv` dataset contains information about wildfires recorded over different years. Each row represents a specific wildfire, including its name, distance from a reference point, size, type, and geographical coordinates.
+[`fire_distance_info.csv`](Csv-files\fire_distance_info.csv) dataset contains information about wildfires recorded over different years. Each row represents a specific wildfire, including its name, distance from a reference point, size, type, and geographical coordinates.
 
 ### Schema Description
 
@@ -105,7 +106,7 @@ This dataset contains annual air quality index (AQI) values measured over severa
 | `avg_distance`     | The average distance from a reference point to the wildfire (in meters).        | `float`                    |
 | `perimeter_start`  | The starting geographical coordinates of the wildfire's perimeter.              | `string` (Array of floats) |
 
-`smoke_estimate_per_year.csv` contains estimates of smoke levels measured over different years. Each row represents the estimated amount of smoke present in the atmosphere for a specific year.
+[`smoke_estimate_per_year.csv`](Csv-files\smoke_estimate_per_year.csv) contains estimates of smoke levels measured over different years. Each row represents the estimated amount of smoke present in the atmosphere for a specific year.
 
 ### Schema Description
 
@@ -114,7 +115,7 @@ This dataset contains annual air quality index (AQI) values measured over severa
 | `year`            | The year when the smoke estimate was recorded.     | `integer`   |
 | `smoke_estimate`  | The estimated amount of smoke (arbitrary units).   | `float`     |
 
-`gaseous_aqi_1964_2024.csv` dataset contains air quality measurements recorded at specific monitoring sites. Each row represents an observation for gaseous air quality parameter on a given day, along with site and geographic details.
+[`gaseous_aqi_1964_2024.csv`](Csv-files\gaseous_aqi_1964_2024.csv) dataset contains air quality measurements recorded at specific monitoring sites. Each row represents an observation for gaseous air quality parameter on a given day, along with site and geographic details.
 
 ### Schema Description
 
@@ -133,7 +134,7 @@ This dataset contains annual air quality index (AQI) values measured over severa
 | `date_local`       | The date of the measurement in `YYYY-MM-DD` format.                        | `date`                     |
 | `aqi`              | The Air Quality Index (AQI) value for the measured parameter (may be null).| `float` or `null`          |
 
-`particulate_aqi_1964_2024.csv` contains AQI data based on particulate matter measurements. Each row represents the air quality index and related details recorded at a specific monitoring site on a particular date.
+[`particulate_aqi_1964_2024.csv`](Csv-files\particulate_aqi_1964_2024.csv) contains AQI data based on particulate matter measurements. Each row represents the air quality index and related details recorded at a specific monitoring site on a particular date.
 
 ### Schema Description
 
@@ -154,7 +155,7 @@ This dataset contains annual air quality index (AQI) values measured over severa
 
 ## Extended Analysis Dataset
 
-`COPD-Emergency-Dept-Visits-Asthma.csv` contains health-related data indicating the number of cases of COPD, asthma-related emergency department (ED) visits, and hospitalizations over different years. Each row represents the reported cases for a specific year. This data was obtained from the tracking california data explorer system.  
+[`COPD-Emergency-Dept-Visits-Asthma.csv`](Extended-analysis-dataset\COPD-Emergency-Dept-Visits-Asmtha.csv) contains health-related data indicating the number of cases of COPD, asthma-related emergency department (ED) visits, and hospitalizations over different years. Each row represents the reported cases for a specific year. This data was obtained from the tracking california data explorer system.  
 
 ### Schema Description
 
@@ -165,7 +166,7 @@ This dataset contains annual air quality index (AQI) values measured over severa
 | `Asthma ED Visit`    | The number of asthma-related emergency department (ED) visits.  | `integer`   |
 | `Hospitalization`    | The number of Asthma related hospitalizations | `integer`   |
 
-`future_smoke_estimate_predictions.csv` contains estimated smoke levels based on ARIMA model predictions for different years. Each row represents the estimated smoke level for a specific year.
+[`future_smoke_estimate_predictions.csv`](Extended-analysis-dataset\future_smoke_estimate_predictions.csv) contains estimated smoke levels based on ARIMA model predictions for different years. Each row represents the estimated smoke level for a specific year.
 
 ### Schema Description
 
@@ -174,7 +175,7 @@ This dataset contains annual air quality index (AQI) values measured over severa
 | `year`                 | The year for which the smoke estimate was recorded.  | `integer`   |
 | `smoke_estimate_arima` | The estimated smoke level (in arbitrary units) based on ARIMA model predictions. | `float`     |
 
-`smoke_breathing_data.csv` contains smoke estimates and the respiratory data that includes COPD cases, asthma-related emergency department visits, and hospitalizations for different years. Each row represents the data for a specific year.
+[`smoke_breathing_data.csv`](Extended-analysis-dataset\smoke_breathing_data.csv) contains smoke estimates and the respiratory data that includes COPD cases, asthma-related emergency department visits, and hospitalizations for different years. Each row represents the data for a specific year.
 
 ### Schema Description
 
@@ -188,16 +189,34 @@ This dataset contains annual air quality index (AQI) values measured over severa
 
 
 ## Plots  
-The plots generated as part of the visual analysis are stored in the folder Visulaizations. This folder contains 3 images in the PNG format. 
+The plots generated as part of the visual analysis are stored in the folder Visulaizations. This folder contains images in the PNG format.  
+
+[Fires by distance](Visualizations\Fires_by_distance.png) A histogram showing the number of fires occurring every 50 mile distance from Rialto for all fires ranging up to 1800 miles away. The histogram also indicates the 650 mile distance cut-off.
+
+[Total_acres_burned](Visualizations\Acres_burned_per_year.png) A time series graph of total acres burned per year for the fires occurring in the 650 mile radius from Rialto.
+
+[AQI and smoke estimate over time](Visualizations\AQI-Smoke-Estimate-over-time.png) A time series graph comparing the calculated fire smoke estimates for Madison and the average AQI for Madison.
+
+[Smoke estimate forecast](Visualizations\Smoke-estimate-forecast.png) Plot showing the time series forecast of smoke estimate untill the year 2050.
+
+[Correlation Heatmap](Visualizations\correlation-heatmap.png) Image showing the correlation between smoke estimate and respiratory health indicators (COPD ED visits, Asthma ED VIsits, Asthma related hospitalizations)
+
+[Asthma ED visits predicted](Visualizations\predicted-Asthma-Cases.png) Plot showing the number of Asthma related ED visits for the future. 
+
+[COPD ED Visits predicted](Visualizations\predicted-COPD-Cases.png) Plot showing the number of COPD related ED visits for the future.
+
+[Asthma related hospitalizations](Visualizations\predicted-Asthma-related-hospitalizations.png) Plot showing the number of Asthma related hospitalizations predicted for the future.
+
+
 
 ## Repository usage and code to replicate the results  
 In order to reproduce the results, Clone this repository and execute the notebooks in the order in which they are named.  
-Step 1: Run 1_wildfire_data_Acquisition.ipynb  
-Step 2: Run 2_AQI_Data_Acquisition.ipynb  
-Step 3: Run 3_Data_Analysis.ipynb  
-Step 4: Run 4_Modelling.ipynb  
-Step 5: Run 5_DataVisualization.ipynb  
-Step 6: Run Extended_Analysis.ipynb  
+Step 1: Run [1_wildfire_data_Acquisition.ipynb](1_wildfire_data_Acquisition.ipynb)  This file contains the code to acquire and pre process wildfire data.  
+Step 2: Run [2_AQI_Data_Acquisition.ipynb](2_AQI_Data_Acquisition.ipynb)   This notebook contains the code to acquire and pre process the AQI data for the city of rialto.  
+Step 3: Run [3_Data_Analysis.ipynb](3_Data_Analysis.ipynb)  This notebook contains code to generate visual analysis plots for wildfire and AQI data. In this notebook, smoke estimate equation is created and tested its correlation with AQI.  
+Step 4: Run [4_Modelling.ipynb](4_Modelling.ipynb)  In this notebook, smoke estimate is forecasted until the year 2050.  
+Step 5: Run [5_DataVisualization.ipynb](5_DataVisualization.ipynb)  This notebook contains some of the visual plots about wildifre analysis and AQI.  
+Step 6: Run [Extended_Analysis.ipynb](Extended_Analysis.ipynb)  This notebook contains the code where the smoke estimate is analysed along side respiratory health data for the city of Rialto. A model is developed to predict respiratory health outcomes (COPD and Asthma related ED visits and hospitalizations).  
 
 While running Wildfire Data Acquisition code, make sure to keep the combined dataset json file in the same directory. This file is not uploaded to github because of the size. Refer the link mentioned in the section wildfire Data. Additionally, place the compute_distance script in the same directory as this notebook and import it in this script. 
 
