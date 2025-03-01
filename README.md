@@ -1,4 +1,4 @@
-# data-512-Wildfire-Analysis
+# Wildfire-Analysis
 ## Wildland Fire Analysis of Rialto, California
 
 ## Project Overview  
